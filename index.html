@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="./styles/styles.scss">
+  <title>Frontend Mentor | Interactive card details form</title>
+</head>
+<body>
+  <picture class="bg-image"><!--!!!!!!!!!!!!!HIDDEN!!!!!!!!!!!!!!!!-->
+    <source media="(max-width: 375px)" srcset="./images/bg-main-mobile.png">
+    <img src="./images/bg-main-desktop.png" alt="Background image">
+  </picture>
+  <main class="wrapper">
+    <section class="cards-container">
+      <div class="card-front-container">
+        <img src="./images/bg-card-front.png" alt="Card front background">
+      </div>
+      <div class="card-back-container">
+        <img src="./images/bg-card-back.png" alt="Card back background">
+      </div>
+    </section>
+    <section class="form-container">
+    <form class="input-container">
+      <label for="name">cardholder name</label>
+      <input type="text" name="name" id="name" placeholder="e.g. John Black">
+      <label for="number">card number</label>
+      <input type="number" name="number" id="number" placeholder="1234 5678 9123 0000">
+      <label for="date">exp. date (mm/yy)</label>
+      <input type="month" name="date" id="date" min="2024-01" max="2040-01" placeholder="MM/YY">
+      <label for="cvc">cvc</label>
+      <input type="number" name="cvc" id="cvc" placeholder="eg. 123">
+      <button type="submit">Confirm</button>
+    </form>
+    </section>
+    <div class="complete-container">
+
+    </div>
+  </main>
+
+
+  <script src="./script.js"></script>
+</body>
+</html>
+
+
+<!-- 
+0000 0000 0000 0000
+Jane Appleseed
+00/00
+
+000
+
+Cardholder Name
+e.g. Jane Appleseed
+
+Card Number
+e.g. 1234 5678 9123 0000
+
+Exp. Date (MM/YY)
+MM
+YY
+
+CVC
+e.g. 123
+
+Confirm
+ -->
+
+
+
+
+
+
+<!-- Completed state start -->
+
+<!-- Thank you!
+We've added your card details
+Continue -->
