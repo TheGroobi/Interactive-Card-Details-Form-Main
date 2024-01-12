@@ -1,7 +1,7 @@
   @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500&family=Work+Sans:wght@400;600;700&display=swap');
 
     $darkViolet: hsl(278, 68%, 11%);
-    $darlVioletGray: hsl(279, 6%, 55%);
+    $darkVioletGray: hsl(279, 6%, 55%);
     $lightVioletGray: hsl(270, 3%, 87%);
     $white: hsl(0, 0%, 100%);
     $activeInputBorder: linear-gradient(hsl(249, 99%, 64%), hsl(278, 94%, 30%));
@@ -102,6 +102,39 @@ body {
     }
     input {
         margin-bottom: 1em;
+        border: 1px solid $lightVioletGray;
+        border-radius: 10px;
+        padding: 1em;
+        font-size: 18px;
+        opacity: 0.67;
+        font-family: 'Space Grotesk', sans-serif;
+        &:focus, &:active {
+            //ADD GRADIENT HERE
+        }
+    }
+    #name, #number  {
+        min-width: 400px;
+    }
+    button{
+        background: $darkViolet;
+        border: none;
+        color: white;
+        height: 4em;
+        width: 100%;
+        border-radius: 10px;
+        &:hover, &:focus {
+            background: $lightVioletGray;
+            color: $darkViolet;
+            border: 2px solid $darkViolet;
+        }
     }
 }
 
+::placeholder, ::-webkit-input-placeholder, ::-moz-placeholder {
+    color: $darkVioletGray;
+    margin-left: 0.5em;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    opacity: 0.5;
+}

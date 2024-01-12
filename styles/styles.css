@@ -92,4 +92,35 @@ body {
 }
 .input-container input {
   margin-bottom: 1em;
+  border: 1px solid hsl(270, 3%, 87%);
+  border-radius: 10px;
+  padding: 1em;
+  font-size: 18px;
+  opacity: 0.67;
+  font-family: "Space Grotesk", sans-serif;
+}
+.input-container #name, .input-container #number {
+  min-width: 400px;
+}
+.input-container button {
+  background: hsl(278, 68%, 11%);
+  border: none;
+  color: white;
+  height: 4em;
+  width: 100%;
+  border-radius: 10px;
+}
+.input-container button:hover, .input-container button:focus {
+  background: hsl(270, 3%, 87%);
+  color: hsl(278, 68%, 11%);
+  border: 2px solid hsl(278, 68%, 11%);
+}
+
+::placeholder, ::-webkit-input-placeholder, ::-moz-placeholder {
+  color: hsl(279, 6%, 55%);
+  margin-left: 0.5em;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  opacity: 0.5;
 }/*# sourceMappingURL=styles.css.map */
