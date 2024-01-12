@@ -1,7 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500&family=Work+Sans:wght@400;600;700&display=swap");
+* {
+  font-family: "Space Grotesk", sans-serif;
+}
+
 body {
   margin: 0;
-  font-family: "Space Grotesk", sans-serif;
   font-size: 18px;
   background: hsl(0, 0%, 100%);
   letter-spacing: 2px;
@@ -51,8 +54,8 @@ body {
 }
 .cards-container .card-front-container .card-name, .cards-container .card-back-container .card-name {
   font-size: 16px;
-  left: 2.5em;
-  top: 12em;
+  left: 3.5em;
+  top: 11.5em;
 }
 .cards-container .card-front-container .card-date, .cards-container .card-back-container .card-date {
   font-size: 16px;
@@ -97,7 +100,6 @@ body {
   padding: 1em;
   font-size: 18px;
   opacity: 0.67;
-  font-family: "Space Grotesk", sans-serif;
 }
 .input-container #name, .input-container #number {
   min-width: 400px;
@@ -119,7 +121,6 @@ body {
 ::placeholder, ::-webkit-input-placeholder, ::-moz-placeholder {
   color: hsl(279, 6%, 55%);
   margin-left: 0.5em;
-  font-family: "Space Grotesk", sans-serif;
   font-size: 18px;
   font-weight: 500;
   opacity: 0.5;

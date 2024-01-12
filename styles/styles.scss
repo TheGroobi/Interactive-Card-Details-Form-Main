@@ -7,11 +7,12 @@
     $activeInputBorder: linear-gradient(hsl(249, 99%, 64%), hsl(278, 94%, 30%));
     $redError: hsl(0, 100%, 66%);
 
-
+* {
+    font-family: 'Space Grotesk', sans-serif;
+}
 
 body {
     margin: 0;
-    font-family: 'Space Grotesk', sans-serif;
     font-size: 18px;
     background: $white;
     letter-spacing: 2px;
@@ -61,8 +62,8 @@ body {
         }
         .card-name {
             font-size: 16px;
-            left: 2.5em;
-            top: 12em;
+            left: 3.5em;
+            top: 11.5em;
         }
         .card-date {
             font-size: 16px;
@@ -107,7 +108,6 @@ body {
         padding: 1em;
         font-size: 18px;
         opacity: 0.67;
-        font-family: 'Space Grotesk', sans-serif;
         &:focus, &:active {
             //ADD GRADIENT HERE
         }
@@ -133,7 +133,6 @@ body {
 ::placeholder, ::-webkit-input-placeholder, ::-moz-placeholder {
     color: $darkVioletGray;
     margin-left: 0.5em;
-    font-family: 'Space Grotesk', sans-serif;
     font-size: 18px;
     font-weight: 500;
     opacity: 0.5;
