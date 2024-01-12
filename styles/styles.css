@@ -97,6 +97,16 @@ body {
   padding: 0.7em;
   font-size: 18px;
 }
+.input-container input:focus, .input-container input:active {
+  border-left-color: hsl(249, 99%, 64%);
+  border-right-color: hsl(278, 94%, 30%);
+  border-top-color: hsl(278, 94%, 30%);
+  border-bottom-color: hsl(249, 99%, 64%);
+  -o-border-image: solid;
+     border-image: solid;
+  border-width: 1px;
+  outline: none;
+}
 .input-container .label {
   margin-bottom: 2%;
   margin-top: 2em;
@@ -123,6 +133,20 @@ body {
   background: hsl(278, 68%, 11%);
   letter-spacing: 20px;
   transition: all 0.1s ease-out;
+}
+.input-container .error {
+  color: hsl(0, 100%, 66%);
+  font-size: 12px;
+  margin: 0;
+  margin-top: 0.7em;
+  text-transform: capitalize;
+}
+.input-container .error-border {
+  border: 1px solid hsl(0, 100%, 66%);
+  outline: none;
+}
+.input-container .error-border:hover, .input-container .error-border:focus, .input-container .error-border:active {
+  border: 1px solid hsl(0, 100%, 66%);
 }
 .input-container .date-container {
   display: grid;

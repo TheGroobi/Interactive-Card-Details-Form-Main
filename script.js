@@ -1,36 +1,39 @@
-//replace p element with .value from input
-//get value from input
-//select the p element
-// replace the innerHTML
-//make the elements put an error if the value is different than desired
-// add p element with error below wrong input
-const input = document.body.querySelector("#number");
-input.addEventListener("input", cardNumberChange);
+//errors
+//cannot be blank
+//only numbers can only be numbers
+//
+const errorElement = document.createElement("p");
+
+const numberInput = document.body.querySelector("#number");
+const dateInput = document.body.querySelector("#date");
+const cvcInput = document.body.querySelector("#cvc");
+const nameInput = document.body.querySelector("#name");
+console.log(numberInput, dateInput, cvcInput, nameInput);
+
+numberInput.addEventListener("input", cardNumberChange);
+// numberInput.addEventListener("input", dateChange);
+// numberInput.addEventListener("input", cvcChange);
+// numberInput.addEventListener("input", nameChange);
+
 function cardNumberChange(event) {
-    const pElement = document.querySelector("h1");
-    const errorElement = document.createElement("p");
+    const number = document.querySelector("h1");
     const form = document.querySelector("form");
-    pElement.innerHTML = input.value;
-    if (pElement.innerHTML.length == 16) {
+    number.innerHTML = numberInput.value;
+    if (number.innerHTML.length == 17) {
         errorElement.innerHTML = "Error: Card number should be 16 digits";
-        errorElement.style.color = "red";
-        errorElement.style.fontSize = "12px";
-        errorElement.style.marginTop = "5px";
-        input.parentElement.insertBefore(errorElement, input.nextSibling);
-    } else if (pElement.innerHTML.length < 16) {
+        errorElement.classList.add("error");
+        numberInput.classList.add("error-border");
+        numberInput.parentElement.insertBefore(errorElement, numberInput.nextSibling);
+    } else if (number.innerHTML.length < 17) {
         form.querySelectorAll('p').forEach(element => {
             element.remove();
         })
-    } else if (pElement.innerHTML.length >= 22) {
-        input.setAttribute("disabled", "");
+        numberInput.classList.remove("error-border");
+    } else if (number.innerHTML.length >= 22) {
+        numberInput.setAttribute("disabled", "");
+        setTimeout(() => numberInput.removeAttribute("disabled"), 2000);
     }
+    //ADD WHITE SPACES EVERY 4 DIGITS using regex
+    //maybe figure out how to disable input of everything besides backspace 
+    //to lock instead of disabling at line 29
 };
-
-
-// if (pElement.innerHTML !== inputValue) {
-//     pElement.innerHTML = inputValue;
-//     const errorElement = document.createElement("p");
-//     errorElement.innerHTML = "Error: Value is different than desired";
-//     errorElement.style.color = "red";
-//     input.parentElement.insertBefore(errorElement, input.nextSibling);
-// }
