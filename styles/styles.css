@@ -157,15 +157,16 @@ body {
 }
 .input-container .date-container .label-date {
   grid-column: 1/3;
+  font-size: 0.7em;
 }
 .input-container .date-container .label-cvc {
   grid-column: 3/4;
 }
-.input-container .date-container #year {
+.input-container .date-container #month {
   grid-column: 1;
   grid-row: 2;
 }
-.input-container .date-container #month {
+.input-container .date-container #year {
   grid-column: 2;
   grid-row: 2/3;
 }
