@@ -1,69 +1,107 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&family=Work+Sans:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500&family=Work+Sans:wght@400;600;700&display=swap');
 
-:root {
-    --dark-violet: hsl(278, 68%, 11%);
-    --dark-gray-violet: hsl(279, 6%, 55%);
-    --light-gray-violet: hsl(270, 3%, 87%);
-    --white: hsl(0, 0%, 100%);
-    --active-input-border: linear-gradient(hsl(249, 99%, 64%), hsl(278, 94%, 30%));
-    --red-error: hsl(0, 100%, 66%);
-}
+    $darkViolet: hsl(278, 68%, 11%);
+    $darlVioletGray: hsl(279, 6%, 55%);
+    $lightVioletGray: hsl(270, 3%, 87%);
+    $white: hsl(0, 0%, 100%);
+    $activeInputBorder: linear-gradient(hsl(249, 99%, 64%), hsl(278, 94%, 30%));
+    $redError: hsl(0, 100%, 66%);
+
+
 
 body {
     margin: 0;
     font-family: 'Space Grotesk', sans-serif;
     font-size: 18px;
-    background: var(--white);
+    background: $white;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 500;
 }
 
 .wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 2fr 1fr;
-    max-height: 100vh;
-    width: fit-content;
+    min-height: 100vh;
     margin: auto;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100vh;
 }
 
-.bg-image img{ 
+.bg-image {
+    img { 
     position: absolute;
     z-index: -1;
+    }
 }
 
 .cards-container {
-    grid-row: 2;
-    display: grid;
-    gap: calc(2em, -10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    color: $white;
+    font-weight: 300;
+    .card-front-container, .card-back-container {
+        position: relative;
+        .card-logo, .card-number, .card-name, .card-date, .cvc {
+            position: absolute;
+            z-index: 1;
+        }
+        .card-logo {
+            left: 2.5em;
+            top: 1.5em;
+        }
+        .card-number {
+            left: 2em;
+            top: 5em;
+            margin: 0;
+            letter-spacing: 3px;
+            font-weight: 400;
+        }
+        .card-name {
+            font-size: 16px;
+            left: 2.5em;
+            top: 12em;
+        }
+        .card-date {
+            font-size: 16px;
+            right: 2.5em;
+            top: 11.5em;
+        }
+        .cvc {
+            right: 3em;
+            color: $white;
+            top: 5em;
+        }
+    }
+    .card {
+        margin-left: 2em;
+    }
+    .front {
+        margin-left: 1em;
+    }
+    .back {
+        margin-left: 13em;
+    }
 }
 
 .form-container {
-    grid-row: 2;
-    display: grid;
-    align-items: center;
-    justify-content: center;
-}
-
-.card-front-container {
-    height: fit-content;
     display: flex;
     justify-content: center;
-}
-
-.card-back-container {
-    height: fit-content;
+    align-items: center;
 }
 
 .input-container {
     display: flex;
-    align-items : flex;
+    justify-content: center;
     flex-direction: column;
     width: fit-content;
+    * {
+        margin: 0.1em 0;
+    }
+    input {
+        margin-bottom: 1em;
+    }
 }
 
-.input-container * {
-    margin: 0.1em 0;
-}
-
-.input-container input {
-    margin-bottom: 1em;
-}
