@@ -14,7 +14,11 @@ const cvcInput = document.body.querySelector("#cvc");
 const nameInput = document.body.querySelector("#name");
 const form = document.querySelector("form");
 const button = document.querySelector('button')
-const inputs = [nameInput, numberInput, monthInput, yearInput, cvcInput];
+const inputs = [
+    {input: nameInput},
+    {input: numberInput, requirement: 'card'},
+    {input: monthInput, requirement: 'month'},
+    yearInput, cvcInput];
 button.addEventListener("click", buttonSubmit);
 numberInput.addEventListener("input", cardNumberChange);
 monthInput.addEventListener("input", monthChange);
@@ -26,12 +30,13 @@ const numberHtml = document.querySelector("h1");
 
 function cardNumberChange() {
 
-    if(numberInput.value.length === 0) {
-        numberHtml.innerHTML = numberHtml.getAttribute("data-placeholder");
-    }
-    else {
-        numberHtml.innerHTML = numberInput.value;
-    }
+        if(numberInput.value.length === 0) {
+            numberHtml.innerHTML = numberHtml.getAttribute("data-placeholder");
+        }
+        else {
+            numberHtml.innerHTML = numberInput.value;
+        }
+
     //ADD WHITE SPACES EVERY 4 DIGITS using regex
     // string.value to array to splice(4) and join() together
     //only allow numbers
@@ -75,6 +80,15 @@ function buttonSubmit(e) {
     })
     inputs.forEach(input => {
         if (!input.value) input.parentElement.classList.add("has-error");
+        if (input.requirement){
+            if (input.requirement === 'card') {
+                let cardNumber = input.value.replace(/\s/g, '');
+                if (cardNumber < 16) input.parentElement.classList.add("has-error");
+            }
+            if (input.requirement === 'month') {
+                if (input.value > 12 || input.value<1) input.parentElement.classList.add("has-error");
+            }
+        }
 
     });
 }
