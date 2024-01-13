@@ -4,9 +4,6 @@
 // \b[1-9]\b only single digit number regex
 //
 
-// ;
-//
-//input;
 
 
 
@@ -17,8 +14,7 @@ const cvcInput = document.body.querySelector("#cvc");
 const nameInput = document.body.querySelector("#name");
 const form = document.querySelector("form");
 const button = document.querySelector('button')
-const inputs = [numberInput, monthInput, yearInput, cvcInput, nameInput];
-
+const inputs = [nameInput, numberInput, monthInput, yearInput, cvcInput];
 button.addEventListener("click", buttonSubmit);
 numberInput.addEventListener("input", cardNumberChange);
 monthInput.addEventListener("input", monthChange);
@@ -63,31 +59,33 @@ function nameChange() {
     name.innerHTML = nameInput.value;
 }
 
-const fragment = new DocumentFragment();
-
-
+const errorBlank = document.querySelectorAll(".error");
+console.log(errorBlank[3])
 function buttonSubmit(e) {
-    
-    const errorBlank = document.createElement("p");
-    errorBlank.classList.add("error")
-    errorBlank.innerHTML = "Error: cannot be blank";
-    const cloneErrorBlank = errorBlank.cloneNode(true);
-    form.addEventListener("submit", (event) => {
-        if (inputs.forEach(input => input.value === "")) {
-            console.log(input.value === "");
+    inputs.forEach(input => {
+        if (!input.value) 
+            input.classList.add("error-border");
+        });
+        if (!inputs[0].value) {
+            e.preventDefault();
+            errorBlank[0].style.display = "block";
         }
-        e.preventDefault();
-    })
+        if (!inputs[1].value) {
+            e.preventDefault();
+            errorBlank[1].style.display = "block";
+        }
+        if (!inputs[2].value || !inputs[3].value) {
+            e.preventDefault();
+            errorBlank[2].style.display = "block";
+        }
+        if (!inputs[4].value) {
+            e.preventDefault();
+            errorBlank[3].style.display = "block";
+        }
+        inputs.forEach(input => {
+            if (input.value) {
+            input.classList.remove("error-border");
+            errorBlank.forEach(error => error.style.display = "none");
+        }
+    });
 }
-//     if (inputs.forEach(input => input.value === "")) {
-//         for (input of inputs) {
-//             const errorBlank = document.createElement("p");
-//             errorBlank.classList.add("error")
-//             errorBlank.innerHTML = "Error: cannot be blank";
-//             const cloneErrorBlank = errorBlank.cloneNode(true);
-//             input.insertAdjacentElement('afterend', cloneErrorBlank);
-//             input.classList.add("error-border");
-//         }
-//         event.preventDefault();
-//     }
-// }
