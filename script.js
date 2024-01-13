@@ -22,9 +22,16 @@ yearInput.addEventListener("input", yearChange);
 cvcInput.addEventListener("input", cvcChange);
 nameInput.addEventListener("input", nameChange);
 
+const numberHtml = document.querySelector("h1");
+
 function cardNumberChange() {
-    const number = document.querySelector("h1");
-    number.innerHTML = numberInput.value;
+
+    if(numberInput.value.length === 0) {
+        numberHtml.innerHTML = numberHtml.getAttribute("data-placeholder");
+    }
+    else {
+        numberHtml.innerHTML = numberInput.value;
+    }
     //ADD WHITE SPACES EVERY 4 DIGITS using regex
     // string.value to array to splice(4) and join() together
     //only allow numbers
@@ -62,31 +69,14 @@ function nameChange() {
 const errorBlank = document.querySelectorAll(".error");
 
 function buttonSubmit(e) {
-    inputs.forEach(input => {
-        if (!input.value) 
-            input.classList.add("error-border");
-        });
-        if (!inputs[0].value) {
-            e.preventDefault();
-            errorBlank[0].style.display = "block";
-        }
-        if (!inputs[1].value) {
-            e.preventDefault();
-            errorBlank[1].style.display = "block";
-        }
-        if (!inputs[2].value || !inputs[3].value) {
-            e.preventDefault();
-            errorBlank[2].style.display = "block";
-        }
-        if (!inputs[4].value) {
-            e.preventDefault();
-            errorBlank[3].style.display = "block";
-        }
-    inputs.forEach(input => {
-        if (inputs.value) {
-            input.classList.remove("error-border");
-        }
+    e.preventDefault();
+    document.querySelectorAll('.input-group').forEach(input => {
+        input.classList.remove("has-error");
     })
+    inputs.forEach(input => {
+        if (!input.value) input.parentElement.classList.add("has-error");
+
+    });
 }
 
 

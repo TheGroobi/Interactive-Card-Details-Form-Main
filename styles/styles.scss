@@ -100,6 +100,25 @@ body {
     flex-direction: column;
     width: 50%;
     margin-bottom: 3em;
+
+    &.has-error {
+        .error {
+            display: block;
+            color: $redError;
+            font-size: 12px;
+            margin: 0;
+            margin-top: 0.7em;
+            text-transform: capitalize;
+        }
+
+        input {
+            border: 1px solid $redError;
+            &:hover, &:focus, &:active {
+                border: 1px solid $redError;
+            }
+            outline: none;
+        }
+    }
     input {
         margin-bottom: 0;
         border: 1px solid $lightVioletGray;
@@ -144,22 +163,6 @@ body {
                 letter-spacing: 20px;
                 transition: all 0.1s ease-out;
             }
-        }
-        
-        .error {
-            color: $redError;
-            font-size: 12px;
-            margin: 0;
-            margin-top: 0.7em;
-            text-transform: capitalize;
-        }
-
-        .error-border {
-            border: 1px solid $redError;
-            &:hover, &:focus, &:active {
-                border: 1px solid $redError;
-            }
-            outline: none;
         }
 
         .date-container {
