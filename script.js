@@ -3,10 +3,11 @@
 //only numbers can only be numbers
 // \b[1-9]\b only single digit number regex
 //
-const errorBlank = document.createElement("p");
-// errorBlank.classList.add("error").innerHTML = "Error: value cannot be blank";
-//input.classList.add("error-border")
-//input.parentElement.insertBefore(errorElement, numberInput.nextSibling);
+
+// ;
+//
+//input;
+
 
 
 const numberInput = document.body.querySelector("#number");
@@ -16,7 +17,9 @@ const cvcInput = document.body.querySelector("#cvc");
 const nameInput = document.body.querySelector("#name");
 const form = document.querySelector("form");
 const button = document.querySelector('button')
+const inputs = [numberInput, monthInput, yearInput, cvcInput, nameInput];
 
+button.addEventListener("click", buttonSubmit);
 numberInput.addEventListener("input", cardNumberChange);
 monthInput.addEventListener("input", monthChange);
 yearInput.addEventListener("input", yearChange);
@@ -60,6 +63,31 @@ function nameChange() {
     name.innerHTML = nameInput.value;
 }
 
-function buttonSubmit() {
+const fragment = new DocumentFragment();
 
+
+function buttonSubmit(e) {
+    
+    const errorBlank = document.createElement("p");
+    errorBlank.classList.add("error")
+    errorBlank.innerHTML = "Error: cannot be blank";
+    const cloneErrorBlank = errorBlank.cloneNode(true);
+    form.addEventListener("submit", (event) => {
+        if (inputs.forEach(input => input.value === "")) {
+            console.log(input.value === "");
+        }
+        e.preventDefault();
+    })
 }
+//     if (inputs.forEach(input => input.value === "")) {
+//         for (input of inputs) {
+//             const errorBlank = document.createElement("p");
+//             errorBlank.classList.add("error")
+//             errorBlank.innerHTML = "Error: cannot be blank";
+//             const cloneErrorBlank = errorBlank.cloneNode(true);
+//             input.insertAdjacentElement('afterend', cloneErrorBlank);
+//             input.classList.add("error-border");
+//         }
+//         event.preventDefault();
+//     }
+// }
