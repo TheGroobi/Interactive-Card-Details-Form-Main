@@ -60,7 +60,7 @@ function nameChange() {
 }
 
 const errorBlank = document.querySelectorAll(".error");
-console.log(errorBlank[3])
+
 function buttonSubmit(e) {
     inputs.forEach(input => {
         if (!input.value) 
@@ -82,10 +82,24 @@ function buttonSubmit(e) {
             e.preventDefault();
             errorBlank[3].style.display = "block";
         }
-        inputs.forEach(input => {
-            if (input.value) {
+    inputs.forEach(input => {
+        if (inputs.value) {
             input.classList.remove("error-border");
-            errorBlank.forEach(error => error.style.display = "none");
         }
-    });
+    })
 }
+
+
+//for loop function, too many problems cannot maintain it properly bugs and errors
+// let i = 0;
+// for (input of inputs) {
+//     if(!input.value) {
+//         e.preventDefault();
+//         console.log(i)
+//         errorBlank[i].style.display = "block";
+//         input.classList.add('error-border')
+//         i++
+//     } else if (input.value) {
+//         input.classList.remove("error-border");
+//     }
+// }
