@@ -14,7 +14,13 @@ const cvcInput = document.body.querySelector("#cvc");
 const nameInput = document.body.querySelector("#name");
 const form = document.querySelector("form");
 const button = document.querySelector('button')
-const inputs = [nameInput, numberInput, monthInput, yearInput, cvcInput];
+const inputs = [
+    {input: nameInput},
+    {input: numberInput, requirements: 'card'},
+    {input: monthInput, requirements: 'date'},
+    {input: yearInput, requirements: 'date'},
+    {input: cvcInput, requirements: 'cvc'}
+]
 button.addEventListener("click", buttonSubmit);
 numberInput.addEventListener("input", cardNumberChange);
 monthInput.addEventListener("input", monthChange);
@@ -62,34 +68,11 @@ function nameChange() {
 const errorBlank = document.querySelectorAll(".error");
 
 function buttonSubmit(e) {
-    inputs.forEach(input => {
-        if (!input.value) 
-            input.classList.add("error-border");
-        });
-        if (!inputs[0].value) {
-            e.preventDefault();
-            errorBlank[0].style.display = "block";
-        }
-        if (!inputs[1].value) {
-            e.preventDefault();
-            errorBlank[1].style.display = "block";
-        }
-        if (!inputs[2].value || !inputs[3].value) {
-            e.preventDefault();
-            errorBlank[2].style.display = "block";
-        }
-        if (!inputs[4].value) {
-            e.preventDefault();
-            errorBlank[3].style.display = "block";
-        }
-    inputs.forEach(input => {
-        if (inputs.value) {
-            input.classList.remove("error-border");
-        }
+    document.querySelectorAll('.input-group').forEach(input => {
+        input.classList.remove("has-error");
+        if (!input.value) input.classList.add("error-border");
     })
 }
-
-
 //for loop function, too many problems cannot maintain it properly bugs and errors
 // let i = 0;
 // for (input of inputs) {
