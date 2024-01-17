@@ -6,16 +6,15 @@ const nameInput = document.body.querySelector("#name");
 
 const form = document.querySelector("form");
 const button = document.querySelector('button');
-const cardNumberPattern = /[0-9]{4}\s[0-9]{4}\s[0-9]{4}\s[0-9]{4}/
-const numberPattern = /\D/g
-const numberPatternWithSpace = /\D\v/g
+const cardNumberPattern = /(\d{4}\s\d{4}\s\d{4}\s\d{4})/
+const cvcPattern = /(\d{3})/
+const datePattern = /(\d{2})/
 
 const numberHTML = document.querySelector(".card-number");
 const monthHTML = document.querySelector(".month");
 const yearHTML = document.querySelector(".year");
 const cvcHTML = document.querySelector(".cvc");
 const nameHTML = document.querySelector(".card-name");
-const dateHTMLDiv = document.querySelector('.date-grid-split');
 
 let thisYear = new Date().getFullYear();
 thisYear = thisYear.toString().slice(2, 4);
@@ -23,10 +22,10 @@ thisYear = Number(thisYear) + 20;
 
 const inputsObject = [
     { input: nameInput},
-    { input: numberInput, card: 'requirements'},
-    { input: monthInput, date: 'requirements'},
-    { input: yearInput, date: 'requirements'},
-    { input: cvcInput, cvc: 'requirements'},
+    { input: numberInput, requirement: 'card'},
+    { input: monthInput, requirement: 'month'},
+    { input: yearInput, requirement: 'year'},
+    { input: cvcInput, requirement: 'cvc'},
 ];
 
 button.addEventListener("click", buttonSubmit);
@@ -88,39 +87,45 @@ function nameChange() {
 
 function buttonSubmit(e) {
     inputsObject.forEach(inputObject => {
-        let input = Object.values(inputObject)[0];
-        let requirement = Object.keys(inputObject)[1];
-        const inputError = input.parentElement.lastElementChild;
-
+        const inputError = inputObject.input.parentElement.lastElementChild;
         inputError.textContent = "";
-        input.classList.remove('error-border');
+        inputObject.input.classList.remove('error-border');
+    });
+    inputsObject.forEach(inputObject => {
+        let input = inputObject.input;
+        const inputError = input.parentElement.lastElementChild;
         if (!input.value.length) {
             e.preventDefault();
             inputError.textContent = "Can't be blank";
             input.classList.add('error-border');
-        } else if (requirement) {
+        } else if (inputObject.requirement) {
             e.preventDefault();
-            if (requirement === 'card') {
-                if (numberPatternWithSpace.test(input.value)) {
-                    inputError.textContent = "Wrong format, numbers only";
-                    input.classList.add('error-border');
-                    // ADD REGEX FOR WHITE SPACES IN INPUT OF NUMBER CARD OR IT DOESN'T WORK
-                } else if (!cardNumberPattern.test(input.value)) {
+            if (inputObject.requirement === 'card') {
+                 if (!cardNumberPattern.test(input.value)) {
                     inputError.textContent = "Wrong format, cards should have 16 digits"
                     input.classList.add('error-border');
                 }
-            } else if (requirement === 'date') {
-                if (numberPattern.test(input.value)) {
-                    inputError.textContent = "Wrong format, numbers only";
+            } else if (inputObject.requirement === 'month' || inputObject.requirement === 'year') {
+                if (!datePattern.test(input.value)) {
+                    inputError.textContent = "Card date should be in MM/YY format"
                     input.classList.add('error-border');
-                    //fix the month breaking the error message
+                } else if (inputObject.requirement === 'year') {
+                    if (input.value < (thisYear - 20)) {
+                        inputError.textContent = "Card date shouldn't be expired"
+                        input.classList.add('error-border');
+                    }
                 }
-            } else if (requirement === 'cvc') {
-                if (numberPattern.test(input.value) || input.value.length === 1 || input.value.length === 2) {
-                    inputError.textContent = "Wrong format, 3 or 4 numbers only";
+            } else if (inputObject.requirement === 'cvc') {
+                if (!cvcPattern.test(input.value)) {
+                    inputError.textContent = "Wrong format, CVC should contain only 3 or 4 digits"
                     input.classList.add('error-border');
                 }
             }
+        } else {
+            form.submit()
+            //modal here
         }
-    });
-}
+    }
+
+)};
+
