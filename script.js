@@ -3,7 +3,7 @@ const monthInput = document.body.querySelector("#month");
 const yearInput = document.body.querySelector("#year");
 const cvcInput = document.body.querySelector("#cvc");
 const nameInput = document.body.querySelector("#name");
-
+const completeContainer = document.querySelector(".complete-container");
 const form = document.querySelector("form");
 const button = document.querySelector('button');
 const cardNumberPattern = /(\d{4}\s\d{4}\s\d{4}\s\d{4})/
@@ -121,11 +121,9 @@ function buttonSubmit(e) {
                     input.classList.add('error-border');
                 }
             }
-        } else {
-            form.submit()
-            //modal here
         }
-    }
-
-)};
+    });
+    form.style.display = "none";
+    completeContainer.style.display = "flex";
+};
 

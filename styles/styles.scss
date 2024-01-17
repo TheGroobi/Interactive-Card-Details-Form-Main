@@ -199,6 +199,49 @@ body {
             border: solid 1px $redError;
         }
     }
+    .complete-container {
+        margin-top: 50px;
+        margin-right: 57px;
+        height: 50vh;
+        width: 50%;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        button {
+            background: $darkViolet;
+            border: none;
+            color: white;
+            padding: 0.7em;
+            border-radius: 10px;
+            font-size: 18px;
+            letter-spacing: 2px;
+            width: 100%;
+            &:hover, &:focus {
+                background: $darkVioletActive;
+                color: $white;
+                cursor: pointer;
+                letter-spacing: 3px;
+                transform: translateY(-5px);
+                transition: all 0.2s ease-out;
+            }
+            &:active {
+                background: $darkViolet;
+                letter-spacing: 20px;
+                transition: all 0.1s ease-out;
+            }
+        }
+        p {
+            margin-bottom: 2.5em;
+            text-transform: capitalize;
+            opacity: 0.5;
+            letter-spacing: 0.7px;
+            margin-top: 0;
+        }
+        h1 {
+            font-weight: 500;
+            margin-top: 1.5em;
+        }
+    }
 }
 
 ::placeholder, ::-webkit-input-placeholder, ::-moz-placeholder {
