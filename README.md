@@ -1,3 +1,9 @@
+!!!!IMPORTANT!!!!
+This project was done using 
+- 1440px x 900px for Desktop
+- 375px x 812px for Mobile
+It is not responsive so please be sure to keep that in mind when looking at it adjust the display
+
 # Frontend Mentor - Interactive card details form solution
 
 This is a solution to the [Interactive card details form challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/interactive-card-details-form-XpS8cKZDWw). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
@@ -28,7 +34,7 @@ This is a solution to the [Interactive card details form challenge on Frontend M
 ### Links
 
 - Solution URL: [GitHub](https://github.com/TheGroobi/Interactive-Card-Details-Form-Main)
-- Live Site URL: [Vercel]()
+- Live Site URL: [Vercel](https://interactive-card-details-form-main-sable.vercel.app/)
 
 ## My process
 This project was way above my current skill level when i started it, or i might have just made it hard for myself for no apparent reason.
@@ -56,6 +62,7 @@ I learned a whole lot of useful things because of this but the main ones i remem
 - Sass (basic knowledge and implementation of mixins, variables, nesting) still not sure if i like it better than vanilla css
 
 Here is the main thing im proud of the JS function below:
+
 ```js
 function MySweatAndTears(e) {
     let hasError = false;
@@ -110,6 +117,7 @@ function MySweatAndTears(e) {
     hasError = false;
 };
 ```
+
 And this little button animation with Sass
 ```scss
 button {
@@ -143,14 +151,18 @@ button {
 
 Some things which are not completely finishined on this projects are responsive design, kind of neglected it i don't really want to do it right now, maybe i'll come back to it someday.
 The cvc input and the number input are not perfect:
+
 - cvc accepts if you put 3 numbers and one different character
 - the number input checks if there are 16 numbers of 4 segments of 4 numbers and 3 spaces, but will accept the input if you put in 16 numbers + anything after (still not sure how to use regex to fix this)
+
 Other than that i feel like this project has taught me a lot but gave me some kind of reality check that there is still so much more to learn and i know pretty much nothing right now. 
 I'm still committed tho and will keep trying, maybe in 5 years i'll come back here and laugh at my stupidity and thought process. 
 I want to do one more project with only sass and vanilla js, and the next one i might try learning some tailwind, it looked really fun to use. 
+
 ### Useful resources
 
-- [Regex Creator](https://regexr.com/) - Very good site for understanding what your regex does and learning all the syntax
+- [Regex Creator](https://regexr.com/) - Very good site for understanding what your regex does and learning all the syntax.
+  
 Im not going to list the rest of the sites, cause i don't want to put in 400 links here and spam it out lmao, 
 mainly used StackOverflow, mdn, w3schools, some random articles online, Scrimba 
 
@@ -160,4 +172,5 @@ mainly used StackOverflow, mdn, w3schools, some random articles online, Scrimba
 - Twitter - [@thegroobi](https://twitter.com/TheGroobi) (Don't really use that too often)
 
 ## Acknowledgments
+
 Special thanks to Jarma, who mentored me through this project and checked my spaghetti code to make it better.
