@@ -4,7 +4,7 @@ This project was done using
 - 1440px x 900px for Desktop
 - 375px x 812px for Mobile
 
-It is not responsive so please be sure to keep that in mind when looking at it adjust the display
+It is not responsive so please be sure to keep that in mind when looking at it adjust the dimensions or it won't display properly
 
 # Frontend Mentor - Interactive card details form solution
 
